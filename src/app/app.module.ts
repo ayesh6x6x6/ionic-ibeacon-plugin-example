@@ -6,11 +6,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { IBeacon } from '@ionic-native/ibeacon';
+import { NextPage } from '../pages/next/next';
+import { BeaconProvider } from '../services/beacon-provider';
+import { BluetoothLE } from '@ionic-native/bluetooth-le';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    NextPage
   ],
   imports: [
     BrowserModule,
@@ -19,11 +24,15 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    NextPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    IBeacon,
+    BeaconProvider,
+    BluetoothLE,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
